@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="C:\backup\كيان\كيان.css">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap" rel="stylesheet">
+  <title>العلمية كيان للخدمات المتكاملة</title>
+
+</head>
+<body>
+  <header>
+    <img src="images/7.png" alt="لوجو كيان" class="logo">
+    <div class="hero-text">
+      <!--<h3> العلمية</h3>-->
+      <!--<h1>كيان</h1>-->
+      <h4> للخدمات المتكاملة </h4>
+    </div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="services.html">خدماتنا</a>
+      <a href="gallery.html">معرض الصور</a>
+      <a href="contact.html">تواصل معنا</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>من نحن</h2>
+    <p>شركة العلمية كيان للخدمات المتكاملة متخصصة في تقديم حلول متكاملة في مجالات الطاقة والزراعة، حيث تقوم بإنشاء محطات توليد الطاقة الكهربائية باستخدام الطاقة الشمسية، واستصلاح الأراضي الصحراوية، وحفر آبار الري، وتنفيذ شبكات الري الحديثة، بالإضافة إلى إنشاء الصوب الزراعية بمختلف أنواعها، وذلك باستخدام أحدث الأساليب العلمية والتقنيات المتطورة. كما تقدم الشركة خدمات الإشراف والرعاية الكاملة لزراعة المحاصيل الزراعية المتنوعة، وتوفير جميع الخدمات اللازمة لدعم المزارعين وتحقيق أعلى معدلات النجاح في المشروعات الزراعية. وتشمل أنشطة الشركة أيضًا أعمال التصنيع، والتصدير، والاستيراد، والنقل، مما يجعلها كيانًا متكاملًا يسعى لتقديم قيمة مضافة حقيقية في مجالات الزراعة والطاقة والخدمات اللوجستية ذات الصلة.</p>
+  </section>
+
+  <section>
+    <h2>صور من خدماتنا</h2>
+    <div class="gallery">
+      <div class="slider">
+        <a href="gallery.html#solar"><img src="image/6.jpeg" alt="محطة طاقة شمسية" class="active"></a>
+        <a href="gallery.html#lands"><img src="image/9.png" alt="استصلاح أراضي"></a>
+        <a href="gallery.html#wells"><img src="image/10.jpg" alt="حفر آبار"></a>
+        <a href="gallery.html#greenhouses"><img src="image/1.jpg" alt="صوب زراعية"></a>
+        <a href="gallery.html#irrigation"><img src="image/3.jpg" alt="شبكات ري حديثة"></a>
+        <a href="gallery.html#export"><img src="image/12.png" alt="تصدير منتجات"></a>
+        <a href="gallery.html#import"><img src="image/13.png" alt="استيراد منتجات"></a>
+        <a href="gallery.html#transport"><img src="image/14.png" alt="نقل منتجات"></a>
+      </div>
+      <div class="buttons">
+        <button onclick="prevSlide()">السابق</button>
+        <button onclick="nextSlide()">التالي</button>
+    </div>
+  </section>
+
+
+  <script>
+    const slider = document.querySelectorAll('.slider a img');
+    let current = 0;
+    let slideInterval = setInterval(nextSlide, 3000);
+    
+    function showSlide(index) {
+      slider.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) {
+          img.classList.add('active');
+        }
+      });
+    }
+    
+    function nextSlide() {
+      current = (current + 1) % slider.length;
+      showSlide(current);
+    }
+    
+    function prevSlide() {
+      current = (current - 1 + slider.length) % slider.length;
+      showSlide(current);
+    }
+    
+    // لما المستخدم يضغط زر، نعيد ضبط العداد علشان يبدأ العد من جديد
+    document.querySelectorAll('.buttons button').forEach(button => {
+      button.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 3000);
+      });
+    });
+    </script>
+    <form action="https://formspree.io/f/xgvkvqwd" method="POST">
+      <label for="name">الاسم:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+    
+      <label for="email">البريد الإلكتروني:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+    
+      <label for="message">الرسالة:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+    
+      <button type="submit">أرسل</button>
+    </form>    
+  <footer>
+    <p>© 2025 العلمية كيان للخدمات المتكاملة. جميع الحقوق محفوظة.</p>
+  </footer>
+  
+</body>
+</html>
